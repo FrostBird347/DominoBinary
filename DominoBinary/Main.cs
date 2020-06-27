@@ -4,6 +4,7 @@ namespace DominoBinary
 {
 	class MainClass
 	{
+		public static string V = "0.0.1";
 		public static void Main(string[] args)
 		{
 			try
@@ -52,7 +53,7 @@ namespace DominoBinary
 
 		public static void OutputVersion()
 		{
-			Console.WriteLine("DominoBinary - Version 0.0.1");
+			Console.WriteLine("DominoBinary - Version " + V);
 			System.Environment.Exit(1);
 		}
 
