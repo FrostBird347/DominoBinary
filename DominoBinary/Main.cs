@@ -8,6 +8,10 @@ namespace DominoBinary
 		{
 			try
 			{
+				if (args[0] == "v")
+				{
+					OutputVersion();
+				}
 				String test = (args[1]);
 			}
 			catch(Exception)
@@ -35,13 +39,20 @@ namespace DominoBinary
 		{
 			Console.WriteLine("Error: invalid arguments!");
 			Console.WriteLine("Correct usage:");
-			Console.WriteLine("	DominoBinary.exe [e/d/encode/decode] [F:filepath/I:input]");
+			Console.WriteLine("	DominoBinary.exe [e/d/v/encode/decode] [F:filepath/I:input]");
 			Console.WriteLine("Examples:");
 			Console.WriteLine("	DominoBinary.exe e F:file.txt");
 			Console.WriteLine("	DominoBinary.exe encode I:hello");
 			Console.WriteLine("	DominoBinary.exe d I:message\\ with\\ spaces");
 			Console.WriteLine("	DominoBinary.exe d 'I:message with spaces'");
 			Console.WriteLine("	DominoBinary.exe decode F:file.txt");
+			Console.WriteLine("	DominoBinary.exe v");
+			System.Environment.Exit(1);
+		}
+
+		public static void OutputVersion()
+		{
+			Console.WriteLine("DominoBinary - Version 0.0.1");
 			System.Environment.Exit(1);
 		}
 
