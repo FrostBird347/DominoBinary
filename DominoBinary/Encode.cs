@@ -55,10 +55,10 @@ namespace DominoBinary
 						Output += "🀹";
 						break;
 					default:
-						throw new Exception("Invalid character in binary?");
+						throw new Exception("Invalid character in binary: " + binarystring[i].ToString() + binarystring[i + 1].ToString());
 				}
 			}
-			return Output;
+			return "\n--------------\n" + Output + "\n--------------\n";
 		}
 	}
 }
