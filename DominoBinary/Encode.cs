@@ -38,25 +38,267 @@ namespace DominoBinary
 				hexstring.AppendFormat("{0:x2}", b);
 			string binarystring = String.Join(String.Empty, hexstring.ToString().Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
 			string Output = "";
-			for (int i = 0; i < binarystring.Length; i += 2)
+			bool Encoded = false;
+			int addnum = 2;
+			for (int i = 0; i < binarystring.Length; i += addnum)
 			{
-				switch (binarystring[i].ToString() + binarystring[i + 1].ToString())
+				Encoded = false;
+				try
 				{
-					case "00":
-						Output += "🀱";
-						break;
-					case "01":
-						Output += "🀲";
-						break;
-					case "10":
-						Output += "🀸";
-						break;
-					case "11":
-						Output += "🀹";
-						break;
-					default:
-						throw new Exception("Invalid character in binary: " + binarystring[i].ToString() + binarystring[i + 1].ToString());
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString() + binarystring[i + 10].ToString() + binarystring[i + 11].ToString())
+						{
+							case "000000000000":
+								Output += "🁡";
+								Encoded = true;
+								addnum = 12;
+								break;
+							case "111111111111":
+								Output += "🂓";
+								Encoded = true;
+								addnum = 12;
+								break;
+							default:
+								break;
+						}
+					}
 				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString() + binarystring[i + 10].ToString())
+						{
+							case "00000000000":
+								Output += "🁠";
+								Encoded = true;
+								addnum = 11;
+								break;
+							case "11111111111":
+								Output += "🂌";
+								Encoded = true;
+								addnum = 11;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString())
+						{
+							case "0000000000":
+								Output += "🁟";
+								Encoded = true;
+								addnum = 10;
+								break;
+							case "1111111111":
+								Output += "🂅";
+								Encoded = true;
+								addnum = 10;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString())
+						{
+							case "000000000":
+								Output += "🁞";
+								Encoded = true;
+								addnum = 9;
+								break;
+							case "111111111":
+								Output += "🁾";
+								Encoded = true;
+								addnum = 9;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString())
+						{
+							case "00000000":
+								Output += "🁝";
+								Encoded = true;
+								addnum = 8;
+								break;
+							case "11111111":
+								Output += "🁷";
+								Encoded = true;
+								addnum = 8;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString())
+						{
+							case "0000000":
+								Output += "🁜";
+								Encoded = true;
+								addnum = 7;
+								break;
+							case "1111111":
+								Output += "🁰";
+								Encoded = true;
+								addnum = 7;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString())
+						{
+							case "000000":
+								Output += "🁛";
+								Encoded = true;
+								addnum = 6;
+								break;
+							case "111111":
+								Output += "🁩";
+								Encoded = true;
+								addnum = 6;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString())
+						{
+							case "00000":
+								Output += "🁔";
+								Encoded = true;
+								addnum = 5;
+								break;
+							case "11111":
+								Output += "🁨";
+								Encoded = true;
+								addnum = 5;
+								break;
+							default:
+								break;
+						}
+					}
+				} catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString())
+						{
+							case "0000":
+								Output += "🁍";
+								Encoded = true;
+								addnum = 4;
+								break;
+							case "1111":
+								Output += "🁧";
+								Encoded = true;
+								addnum = 4;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString())
+						{
+							case "000":
+								Output += "🁆";
+								Encoded = true;
+								addnum = 3;
+								break;
+							case "111":
+								Output += "🁦";
+								Encoded = true;
+								addnum = 3;
+								break;
+							default:
+								break;
+						}
+					}
+				}
+				catch { }
+				try
+				{
+					if (!Encoded)
+					{
+						switch (binarystring[i].ToString() + binarystring[i + 1].ToString())
+						{
+							case "00":
+								Output += "🀿";
+								addnum = 2;
+								break;
+							case "11":
+								Output += "🁥";
+								addnum = 2;
+								break;
+							default:
+								throw new Exception();
+						}
+					}
+				}
+				catch (Exception)
+				{
+					switch (binarystring[i].ToString())
+					{
+						case "0":
+							Output += "🀸";
+							addnum = 1;
+							break;
+						case "1":
+							Output += "🁤";
+							addnum = 1;
+							break;
+						default:
+							throw new Exception("Invalid character in binary: " + binarystring[i].ToString());
+					}
+				}
+
 			}
 			return "\n--------------\n" + Output + "\n--------------\n";
 		}
