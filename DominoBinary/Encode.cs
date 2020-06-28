@@ -9,11 +9,11 @@ namespace DominoBinary
 	{
 		public static void Start(string Input)
 		{
-			if (Input.ToUpper().StartsWith("F:"))
+			if (Input.ToUpper().StartsWith("F:", StringComparison.Ordinal))
 			{
 				Console.WriteLine(GetEncodedData(File(Input.Substring(2))));
 			}
-			else if (Input.ToUpper().StartsWith("I:"))
+			else if (Input.ToUpper().StartsWith("I:", StringComparison.Ordinal))
 			{
 				Console.WriteLine(GetEncodedData(Input.Substring(2)));
 			}

@@ -38,6 +38,7 @@
     <Compile Include="Decode.cs" />
     <Compile Include="OldDecode.cs" />
     <Compile Include="OldEncode.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

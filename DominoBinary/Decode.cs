@@ -9,11 +9,11 @@ namespace DominoBinary
 	{
 		public static void Start(string Input)
 		{
-			if (Input.ToUpper().StartsWith("F:"))
+			if (Input.ToUpper().StartsWith("F:", StringComparison.Ordinal))
 			{
 				Console.WriteLine(GetDecodedData(File(Input.Substring(2))));
 			}
-			else if (Input.ToUpper().StartsWith("I:"))
+			else if (Input.ToUpper().StartsWith("I:", StringComparison.Ordinal))
 			{
 				Console.WriteLine(GetDecodedData(Input.Substring(2)));
 			}
@@ -32,18 +32,7 @@ namespace DominoBinary
 		public static string GetDecodedData(string Input)
 		{
 			//Easier to read when on multiple lines
-			string binarystring = Input.Replace("🁡", "000000000000").Replace("🂓", "111111111111");
-			binarystring = binarystring.Replace("🁠", "00000000000").Replace("🂌", "11111111111");
-			binarystring = binarystring.Replace("🁟", "0000000000").Replace("🂅", "1111111111");
-			binarystring = binarystring.Replace("🁞", "000000000").Replace("🁾", "111111111");
-			binarystring = binarystring.Replace("🁝", "00000000").Replace("🁷", "11111111");
-			binarystring = binarystring.Replace("🁜", "0000000").Replace("🁰", "1111111");
-			binarystring = binarystring.Replace("🁛", "000000").Replace("🁩", "111111");
-			binarystring = binarystring.Replace("🁔", "00000").Replace("🁨", "11111");
-			binarystring = binarystring.Replace("🁍", "0000").Replace("🁧", "1111");
-			binarystring = binarystring.Replace("🁆", "000").Replace("🁦", "111");
-			binarystring = binarystring.Replace("🀿", "00").Replace("🁥", "11");
-			binarystring = binarystring.Replace("🀸", "0").Replace("🁤", "1");
+			string binarystring = Input.Replace("🁡", "000000000000").Replace("🂓", "111111111111").Replace("🁠", "00000000000").Replace("🂌", "11111111111").Replace("🁟", "0000000000").Replace("🂅", "1111111111").Replace("🁞", "000000000").Replace("🁾", "111111111").Replace("🁝", "00000000").Replace("🁷", "11111111").Replace("🁜", "0000000").Replace("🁰", "1111111").Replace("🁛", "000000").Replace("🁩", "111111").Replace("🁔", "00000").Replace("🁨", "11111").Replace("🁍", "0000").Replace("🁧", "1111").Replace("🁆", "000").Replace("🁦", "111").Replace("🀿", "00").Replace("🁥", "11").Replace("🀸", "0").Replace("🁤", "1");
 			List<Byte> byteList = new List<Byte>();
 			try
 			{
