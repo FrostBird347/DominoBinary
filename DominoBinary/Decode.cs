@@ -31,7 +31,19 @@ namespace DominoBinary
 
 		public static string GetDecodedData(string Input)
 		{
-			string binarystring = Input.Replace("🀱", "00").Replace("🀲", "01").Replace("🀸", "10").Replace("🀹", "11");
+			//Easier to read when on multiple lines
+			string binarystring = Input.Replace("🁡", "000000000000").Replace("🂓", "111111111111");
+			binarystring = binarystring.Replace("🁠", "00000000000").Replace("🂌", "11111111111");
+			binarystring = binarystring.Replace("🁟", "0000000000").Replace("🂅", "1111111111");
+			binarystring = binarystring.Replace("🁞", "000000000").Replace("🁾", "111111111");
+			binarystring = binarystring.Replace("🁝", "00000000").Replace("🁷", "11111111");
+			binarystring = binarystring.Replace("🁜", "0000000").Replace("🁰", "1111111");
+			binarystring = binarystring.Replace("🁛", "000000").Replace("🁩", "111111");
+			binarystring = binarystring.Replace("🁔", "00000").Replace("🁨", "11111");
+			binarystring = binarystring.Replace("🁍", "0000").Replace("🁧", "1111");
+			binarystring = binarystring.Replace("🁆", "000").Replace("🁦", "111");
+			binarystring = binarystring.Replace("🀿", "00").Replace("🁥", "11");
+			binarystring = binarystring.Replace("🀸", "0").Replace("🁤", "1");
 			List<Byte> byteList = new List<Byte>();
 			try
 			{
