@@ -4,7 +4,7 @@ namespace DominoBinary
 {
 	class MainClass
 	{
-		public static string V = "1.1.0";
+		public static string V = "1.2.0";
 		public static void Main(string[] args)
 		{
 			try

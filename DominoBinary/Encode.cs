@@ -23,7 +23,7 @@ namespace DominoBinary
 			}
 		}
 
-		public static string File(string RawFilePath)
+			public static string File(string RawFilePath)
 		{
 			string fullpath = Path.GetFullPath(RawFilePath);
 			return System.IO.File.ReadAllText(fullpath);
@@ -50,12 +50,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString() + binarystring[i + 10].ToString() + binarystring[i + 11].ToString())
 						{
 							case "000000000000":
-								Output += "🁡";
+								Output += RandEncode("🁡");
 								Encoded = true;
 								addnum = 12;
 								break;
 							case "111111111111":
-								Output += "🂓";
+								Output += RandEncode("🂓");
 								Encoded = true;
 								addnum = 12;
 								break;
@@ -72,12 +72,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString() + binarystring[i + 10].ToString())
 						{
 							case "00000000000":
-								Output += "🁠";
+								Output += RandEncode("🁠");
 								Encoded = true;
 								addnum = 11;
 								break;
 							case "11111111111":
-								Output += "🂌";
+								Output += RandEncode("🂌");
 								Encoded = true;
 								addnum = 11;
 								break;
@@ -94,12 +94,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString() + binarystring[i + 9].ToString())
 						{
 							case "0000000000":
-								Output += "🁟";
+								Output += RandEncode("🁟");
 								Encoded = true;
 								addnum = 10;
 								break;
 							case "1111111111":
-								Output += "🂅";
+								Output += RandEncode("🂅");
 								Encoded = true;
 								addnum = 10;
 								break;
@@ -116,12 +116,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString() + binarystring[i + 8].ToString())
 						{
 							case "000000000":
-								Output += "🁞";
+								Output += RandEncode("🁞");
 								Encoded = true;
 								addnum = 9;
 								break;
 							case "111111111":
-								Output += "🁾";
+								Output += RandEncode("🁾");
 								Encoded = true;
 								addnum = 9;
 								break;
@@ -138,12 +138,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString() + binarystring[i + 7].ToString())
 						{
 							case "00000000":
-								Output += "🁝";
+								Output += RandEncode("🁝");
 								Encoded = true;
 								addnum = 8;
 								break;
 							case "11111111":
-								Output += "🁷";
+								Output += RandEncode("🁷");
 								Encoded = true;
 								addnum = 8;
 								break;
@@ -160,12 +160,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString() + binarystring[i + 6].ToString())
 						{
 							case "0000000":
-								Output += "🁜";
+								Output += RandEncode("🁜");
 								Encoded = true;
 								addnum = 7;
 								break;
 							case "1111111":
-								Output += "🁰";
+								Output += RandEncode("🁰");
 								Encoded = true;
 								addnum = 7;
 								break;
@@ -182,12 +182,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString() + binarystring[i + 5].ToString())
 						{
 							case "000000":
-								Output += "🁛";
+								Output += RandEncode("🁛");
 								Encoded = true;
 								addnum = 6;
 								break;
 							case "111111":
-								Output += "🁩";
+								Output += RandEncode("🁩");
 								Encoded = true;
 								addnum = 6;
 								break;
@@ -204,12 +204,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString() + binarystring[i + 4].ToString())
 						{
 							case "00000":
-								Output += "🁔";
+								Output += RandEncode("🁔");
 								Encoded = true;
 								addnum = 5;
 								break;
 							case "11111":
-								Output += "🁨";
+								Output += RandEncode("🁨");
 								Encoded = true;
 								addnum = 5;
 								break;
@@ -225,12 +225,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString() + binarystring[i + 3].ToString())
 						{
 							case "0000":
-								Output += "🁍";
+								Output += RandEncode("🁍");
 								Encoded = true;
 								addnum = 4;
 								break;
 							case "1111":
-								Output += "🁧";
+								Output += RandEncode("🁧");
 								Encoded = true;
 								addnum = 4;
 								break;
@@ -248,12 +248,12 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString() + binarystring[i + 2].ToString())
 						{
 							case "000":
-								Output += "🁆";
+								Output += RandEncode("🁆");
 								Encoded = true;
 								addnum = 3;
 								break;
 							case "111":
-								Output += "🁦";
+								Output += RandEncode("🁦");
 								Encoded = true;
 								addnum = 3;
 								break;
@@ -270,11 +270,11 @@ namespace DominoBinary
 						switch (binarystring[i].ToString() + binarystring[i + 1].ToString())
 						{
 							case "00":
-								Output += "🀿";
+								Output += RandEncode("🀿");
 								addnum = 2;
 								break;
 							case "11":
-								Output += "🁥";
+								Output += RandEncode("🁥");
 								addnum = 2;
 								break;
 							default:
@@ -287,11 +287,11 @@ namespace DominoBinary
 					switch (binarystring[i].ToString())
 					{
 						case "0":
-							Output += "🀸";
+							Output += RandEncode("🀸");
 							addnum = 1;
 							break;
 						case "1":
-							Output += "🁤";
+							Output += RandEncode("🁤");
 							addnum = 1;
 							break;
 						default:
@@ -301,6 +301,102 @@ namespace DominoBinary
 
 			}
 			return "\n--------------\n" + Output + "\n--------------\n";
+		}
+
+		public static string RandEncode(string symbol)
+		{
+			if ("🂒🂌".Contains(symbol))
+			{
+				return new string[] { "🂒", "🂌" }[new Random().Next(2)];
+			}
+			else if ("🂑🂋🂅".Contains(symbol))
+			{
+				return new string[] { "🂑", "🂋", "🂅" }[new Random().Next(3)];
+			}
+			else if ("🂐🂊🂄🁾".Contains(symbol))
+			{
+				return new string[] { "🂐", "🂊", "🂄", "🁾" }[new Random().Next(4)];
+			}
+			else if ("🂏🂉🂃🁽🁷".Contains(symbol))
+			{
+				return new string[] { "🂏", "🂉", "🂃", "🁽", "🁷" }[new Random().Next(5)];
+			}
+			else if ("🂎🂈🂂🁼🁶🁰".Contains(symbol))
+			{
+				return new string[] { "🂎", "🂈", "🂂", "🁼", "🁶", "🁰" }[new Random().Next(6)];
+			}
+			else if ("🂍🂇🂁🁻🁵🁯🁩".Contains(symbol))
+			{
+				return new string[] { "🂍", "🂇", "🂁", "🁻", "🁵", "🁯", "🁩" }[new Random().Next(7)];
+			}
+			else if ("🂆🂀🁺🁴🁮🁨".Contains(symbol))
+			{
+				return new string[] { "🂆", "🂀", "🁺", "🁴", "🁮", "🁨" }[new Random().Next(6)];
+			}
+			else if ("🁿🁹🁳🁭🁧".Contains(symbol))
+			{
+				return new string[] { "🁿", "🁹", "🁳", "🁭", "🁧" }[new Random().Next(5)];
+			}
+			else if ("🁸🁲🁬🁦".Contains(symbol))
+			{
+				return new string[] { "🁸", "🁲", "🁬", "🁦" }[new Random().Next(4)];
+			}
+			else if ("🁱🁫🁥".Contains(symbol))
+			{
+				return new string[] { "🁱", "🁫", "🁥" }[new Random().Next(3)];
+			}
+			else if ("🁪🁤".Contains(symbol))
+			{
+				return new string[] { "🁪", "🁤" }[new Random().Next(2)];
+			}
+			else if ("🁠🁚".Contains(symbol))
+			{
+				return new string[] { "🁠", "🁚" }[new Random().Next(2)];
+			}
+			else if ("🁟🁙🁓".Contains(symbol))
+			{
+				return new string[] { "🁟", "🁙", "🁓" }[new Random().Next(3)];
+			}
+			else if ("🁞🁘🁒🁌".Contains(symbol))
+			{
+				return new string[] { "🁞", "🁘", "🁒", "🁌" }[new Random().Next(4)];
+			}
+			else if ("🁝🁗🁑🁋🁅".Contains(symbol))
+			{
+				return new string[] { "🁝", "🁗", "🁑", "🁋", "🁅" }[new Random().Next(5)];
+			}
+			else if ("🁜🁖🁐🁊🁄🀾".Contains(symbol))
+			{
+				return new string[] { "🁜", "🁖", "🁐", "🁊", "🁄", "🀾" }[new Random().Next(6)];
+			}
+			else if ("🁛🁕🁏🁉🁃🀽🀷".Contains(symbol))
+			{
+				return new string[] { "🁛", "🁕", "🁏", "🁉", "🁃", "🀽", "🀷" }[new Random().Next(7)];
+			}
+			else if ("🁔🁎🁈🁂🀼🀶".Contains(symbol))
+			{
+				return new string[] { "🁔", "🁎", "🁈", "🁂", "🀼", "🀶" }[new Random().Next(6)];
+			}
+			else if ("🁍🁇🁁🀻🀵".Contains(symbol))
+			{
+				return new string[] { "🁍", "🁇", "🁁", "🀻", "🀵" }[new Random().Next(5)];
+			}
+			else if ("🁆🁀🀺🀴".Contains(symbol))
+			{
+				return new string[] { "🁆", "🁀", "🀺", "🀴" }[new Random().Next(4)];
+			}
+			else if ("🀿🀹🀳".Contains(symbol))
+			{
+				return new string[] { "🀿", "🀹", "🀳" }[new Random().Next(3)];
+			}
+			else if ("🀸🀲".Contains(symbol))
+			{
+				return new string[] { "🀸", "🀲" }[new Random().Next(2)];
+			}
+			else
+			{
+				return symbol;
+			}
 		}
 	}
 }
