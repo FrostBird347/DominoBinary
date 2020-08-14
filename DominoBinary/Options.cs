@@ -14,7 +14,7 @@ namespace DominoBinary
 		[Option('i', "input", Required = true, HelpText = "Input. Enter the text (or file path) you want encoded or decoded here.")]
 		public string Input { get; set; }
 
-		[Option('b', "batch", Default = false, HelpText = "Remove the seperators before and after an output. Usefull for decoding and encoding binary files")]
+		[Option('b', "batch", Default = false, HelpText = "Remove the separators before and after an output. Useful for decoding and encoding binary files.")]
 		public bool Silent { get; set; }
 
 		[Option("legacy", Default = false, HelpText = "Use legacy encoder/decoder.")]
