@@ -9,18 +9,19 @@ namespace DominoBinary
 	{
 		public static void Start(string Input)
 		{
-			if (Input.ToUpper().StartsWith("F:"))
+			if (MainClass.SetArgs.InputType.ToUpper().StartsWith("F"))
 			{
-				Console.WriteLine(GetEncodedData(File(Input.Substring(2))));
+				Console.WriteLine(GetEncodedData(File(Input)));
 			}
-			else if (Input.ToUpper().StartsWith("I:"))
+			else if (MainClass.SetArgs.InputType.ToUpper().StartsWith("I"))
 			{
-				Console.WriteLine(GetEncodedData(Input.Substring(2)));
+				Console.WriteLine(GetEncodedData(Input));
 			}
 			else
 			{
-				MainClass.InvalidArgs();
+				MainClass.InvalidArgs("Invalid type. Valid values are: 'F', 'I', 'File', 'Input'.");
 			}
+			MainClass.Complete = true;
 		}
 
 		public static string File(string RawFilePath)
@@ -58,7 +59,14 @@ namespace DominoBinary
 						throw new Exception("Invalid character in binary: " + binarystring[i].ToString() + binarystring[i + 1].ToString());
 				}
 			}
-			return "\n--------------\n" + Output + "\n--------------\n";
+			if (MainClass.SetArgs.Silent)
+			{
+				return Output;
+			}
+			else
+			{
+				return "\n--------------\n" + Output + "\n--------------\n";
+			}
 		}
 	}
 }

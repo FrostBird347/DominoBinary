@@ -9,18 +9,19 @@ namespace DominoBinary
 	{
 		public static void Start(string Input)
 		{
-			if (Input.ToUpper().StartsWith("F:", StringComparison.Ordinal))
+			if (MainClass.SetArgs.InputType.ToUpper().StartsWith("F", StringComparison.Ordinal))
 			{
-				Console.WriteLine(GetEncodedData(File(Input.Substring(2))));
+				Console.WriteLine(GetEncodedData(File(Input)));
 			}
-			else if (Input.ToUpper().StartsWith("I:", StringComparison.Ordinal))
+			else if (MainClass.SetArgs.InputType.ToUpper().StartsWith("I", StringComparison.Ordinal))
 			{
-				Console.WriteLine(GetEncodedData(Input.Substring(2)));
+				Console.WriteLine(GetEncodedData(Input));
 			}
 			else
 			{
-				MainClass.InvalidArgs();
+				MainClass.InvalidArgs("Invalid type. Valid values are: 'F', 'I', 'File', 'Input'.");
 			}
+			MainClass.Complete = true;
 		}
 
 			public static string File(string RawFilePath)
@@ -300,7 +301,14 @@ namespace DominoBinary
 				}
 
 			}
-			return "\n--------------\n" + Output + "\n--------------\n";
+			if (MainClass.SetArgs.Silent)
+			{
+				return Output;
+			}
+			else
+			{
+				return "\n--------------\n" + Output + "\n--------------\n";
+			}
 		}
 
 		public static string RandEncode(string symbol)
