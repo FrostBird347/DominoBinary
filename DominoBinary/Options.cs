@@ -17,6 +17,9 @@ namespace DominoBinary
 		[Option('b', "batch", Default = false, HelpText = "Remove the separators before and after an output. Useful for decoding and encoding binary files.")]
 		public bool Silent { get; set; }
 
+		[Option("progress", Default = false, HelpText = "Shows a progress bar, ignored if batch mode is active.")]
+		public bool Progress { get; set; }
+
 		[Option("legacy", Default = false, HelpText = "Use legacy encoder/decoder.")]
 		public bool Legacy { get; set; }
 

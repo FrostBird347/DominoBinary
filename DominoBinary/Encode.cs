@@ -35,14 +35,28 @@ namespace DominoBinary
 		{
 			byte[] binaryarray = System.Text.Encoding.Unicode.GetBytes(Input);
 			StringBuilder hexstring = new StringBuilder(Input.Length * 2);
+			int bytecount = 0;
 			foreach (byte b in binaryarray)
+			{
+				if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+				{
+					bytecount += 1;
+					Console.Write("\r");
+					Console.Write((new String('0', (binaryarray.Length.ToString().Length - bytecount.ToString().Length))) + bytecount + "/" + binaryarray.Length);
+				}
 				hexstring.AppendFormat("{0:x2}", b);
+			}
 			string binarystring = String.Join(String.Empty, hexstring.ToString().Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
 			string Output = "";
 			bool Encoded = false;
 			int addnum = 2;
 			for (int i = 0; i < binarystring.Length; i += addnum)
 			{
+				if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+				{
+					Console.Write("\r");
+					Console.Write((new String('0', (binarystring.Length.ToString().Length - i.ToString().Length))) + i + "/" + binarystring.Length);
+				}
 				Encoded = false;
 				try
 				{
@@ -298,6 +312,11 @@ namespace DominoBinary
 						default:
 							throw new Exception("Invalid character in binary: " + binarystring[i].ToString());
 					}
+				}
+				if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+				{
+					Console.Write("\r");
+					Console.Write((new String('0', (binarystring.Length.ToString().Length - (i + addnum).ToString().Length))) + (i + addnum) + "/" + binarystring.Length);
 				}
 
 			}

@@ -133,8 +133,15 @@ namespace DominoBinary
 			DecodeMap.Add("🀲", "0");
 			DecodeMap.Add("🀱", String.Empty);
 			string tmpDecode = Input;
+			int KeyCount = 0;
 			foreach (KeyValuePair<string, string> replacement in DecodeMap)
 			{
+				if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+				{
+					KeyCount++;
+					Console.Write("\r");
+					Console.Write(KeyCount + "/" + DecodeMap.Count);
+				}
 				tmpDecode = tmpDecode.Replace(replacement.Key, replacement.Value);
 			}
 			string binarystring = tmpDecode;
@@ -143,12 +150,17 @@ namespace DominoBinary
 			{
 				for (int i = 0; i < binarystring.Length; i += 8)
 				{
+					if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+					{
+						Console.Write("\r");
+						Console.Write((new String('0', (binarystring.Length.ToString().Length - i.ToString().Length))) + i + "/" + binarystring.Length);
+					}
 					byteList.Add(Convert.ToByte(binarystring.Substring(i, 8), 2));
 				}
 			}
 			catch
 			{
-				Console.WriteLine("Error decoding, attempting to use incomplete data...");
+				Console.WriteLine("\nError decoding, attempting to use incomplete data...");
 			}
 			var Output = Encoding.Unicode.GetString(byteList.ToArray());
 			if (MainClass.SetArgs.Silent)
