@@ -20,8 +20,11 @@ namespace DominoBinary
 		[Option("progress", Default = false, HelpText = "Shows a progress bar, ignored if batch mode is active.")]
 		public bool Progress { get; set; }
 
-		[Option("legacy", Default = false, HelpText = "Use legacy encoder/decoder.")]
+		[Option("legacy", Default = false, HelpText = "Use legacy encoder/decoder, does not support ASCII only mode.")]
 		public bool Legacy { get; set; }
+
+		[Option("ascii", Default = false, HelpText = "Use ASCII only encoder/decoder, legacy mode is not supported.")]
+		public bool ASCII { get; set; }
 
 		[Option("version", Default = false, HelpText = "Print version.")]
 		public bool PrintVersion { get; set; }

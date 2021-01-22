@@ -32,119 +32,146 @@ namespace DominoBinary
 
 		public static string GetDecodedData(string Input)
 		{
-			//This took forever
-			Dictionary<string, string> DecodeMap = new Dictionary<string, string>();
-			DecodeMap.Add("🂓", "111111111111");
-			DecodeMap.Add("🂒", "11111111111");
-			DecodeMap.Add("🂑", "1111111111");
-			DecodeMap.Add("🂐", "111111111");
-			DecodeMap.Add("🂏", "11111111");
-			DecodeMap.Add("🂎", "1111111");
-			DecodeMap.Add("🂍", "111111");
-			DecodeMap.Add("🂌", "11111111111");
-			DecodeMap.Add("🂋", "1111111111");
-			DecodeMap.Add("🂊", "111111111");
-			DecodeMap.Add("🂉", "11111111");
-			DecodeMap.Add("🂈", "1111111");
-			DecodeMap.Add("🂇", "111111");
-			DecodeMap.Add("🂆", "11111");
-			DecodeMap.Add("🂅", "1111111111");
-			DecodeMap.Add("🂄", "111111111");
-			DecodeMap.Add("🂃", "11111111");
-			DecodeMap.Add("🂂", "1111111");
-			DecodeMap.Add("🂁", "111111");
-			DecodeMap.Add("🂀", "11111");
-			DecodeMap.Add("🁿", "1111");
-			DecodeMap.Add("🁾", "111111111");
-			DecodeMap.Add("🁽", "11111111");
-			DecodeMap.Add("🁼", "1111111");
-			DecodeMap.Add("🁻", "111111");
-			DecodeMap.Add("🁺", "11111");
-			DecodeMap.Add("🁹", "1111");
-			DecodeMap.Add("🁸", "111");
-			DecodeMap.Add("🁷", "11111111");
-			DecodeMap.Add("🁶", "1111111");
-			DecodeMap.Add("🁵", "111111");
-			DecodeMap.Add("🁴", "11111");
-			DecodeMap.Add("🁳", "1111");
-			DecodeMap.Add("🁲", "111");
-			DecodeMap.Add("🁱", "11");
-			DecodeMap.Add("🁰", "1111111");
-			DecodeMap.Add("🁯", "111111");
-			DecodeMap.Add("🁮", "11111");
-			DecodeMap.Add("🁭", "1111");
-			DecodeMap.Add("🁬", "111");
-			DecodeMap.Add("🁫", "11");
-			DecodeMap.Add("🁪", "1");
-			DecodeMap.Add("🁩", "111111");
-			DecodeMap.Add("🁨", "11111");
-			DecodeMap.Add("🁧", "1111");
-			DecodeMap.Add("🁦", "111");
-			DecodeMap.Add("🁥", "11");
-			DecodeMap.Add("🁤", "1");
-			DecodeMap.Add("🁣", String.Empty);
-			DecodeMap.Add("🁡", "000000000000");
-			DecodeMap.Add("🁠", "00000000000");
-			DecodeMap.Add("🁟", "0000000000");
-			DecodeMap.Add("🁞", "000000000");
-			DecodeMap.Add("🁝", "00000000");
-			DecodeMap.Add("🁜", "0000000");
-			DecodeMap.Add("🁛", "000000");
-			DecodeMap.Add("🁚", "00000000000");
-			DecodeMap.Add("🁙", "0000000000");
-			DecodeMap.Add("🁘", "000000000");
-			DecodeMap.Add("🁗", "00000000");
-			DecodeMap.Add("🁖", "0000000");
-			DecodeMap.Add("🁕", "000000");
-			DecodeMap.Add("🁔", "00000");
-			DecodeMap.Add("🁓", "0000000000");
-			DecodeMap.Add("🁒", "000000000");
-			DecodeMap.Add("🁑", "00000000");
-			DecodeMap.Add("🁐", "0000000");
-			DecodeMap.Add("🁏", "000000");
-			DecodeMap.Add("🁎", "00000");
-			DecodeMap.Add("🁍", "0000");
-			DecodeMap.Add("🁌", "000000000");
-			DecodeMap.Add("🁋", "00000000");
-			DecodeMap.Add("🁊", "0000000");
-			DecodeMap.Add("🁉", "000000");
-			DecodeMap.Add("🁈", "00000");
-			DecodeMap.Add("🁇", "0000");
-			DecodeMap.Add("🁆", "000");
-			DecodeMap.Add("🁅", "00000000");
-			DecodeMap.Add("🁄", "0000000");
-			DecodeMap.Add("🁃", "000000");
-			DecodeMap.Add("🁂", "00000");
-			DecodeMap.Add("🁁", "0000");
-			DecodeMap.Add("🁀", "000");
-			DecodeMap.Add("🀿", "00");
-			DecodeMap.Add("🀾", "0000000");
-			DecodeMap.Add("🀽", "000000");
-			DecodeMap.Add("🀼", "00000");
-			DecodeMap.Add("🀻", "0000");
-			DecodeMap.Add("🀺", "000");
-			DecodeMap.Add("🀹", "00");
-			DecodeMap.Add("🀸", "0");
-			DecodeMap.Add("🀷", "000000");
-			DecodeMap.Add("🀶", "00000");
-			DecodeMap.Add("🀵", "0000");
-			DecodeMap.Add("🀴", "000");
-			DecodeMap.Add("🀳", "00");
-			DecodeMap.Add("🀲", "0");
-			DecodeMap.Add("🀱", String.Empty);
-			string tmpDecode = Input;
-			int KeyCount = 0;
-			foreach (KeyValuePair<string, string> replacement in DecodeMap)
+			string binarystring = "";
+			if (MainClass.SetArgs.ASCII)
 			{
-				if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+				if (Math.Floor((Input.Length / 5d)) != (Input.Length / 5d))
+					Console.WriteLine("WARNING: Invalid text length!");
+				try
 				{
-					KeyCount++;
-					Console.Write("\r");
-					Console.Write(KeyCount + "/" + DecodeMap.Count);
+					for (int i = 0; i < Input.Length; i += 5)
+					{
+						int BitNum = int.Parse(Input[(i + 1)].ToString()) + int.Parse(Input[(i + 3)].ToString());
+						int BitMode = 0;
+						if (Input[i].ToString() == "{")
+						{
+							BitMode = 1;
+						}
+						binarystring += new String(BitMode.ToString()[0], BitNum);
+					}
 				}
-				tmpDecode = tmpDecode.Replace(replacement.Key, replacement.Value);
+				catch
+				{
+					Console.WriteLine("\nFailed to convert to binary, attempting to use incomplete data...");
+				}
+
 			}
-			string binarystring = tmpDecode;
+			else
+			{
+				//This took forever
+				Dictionary<string, string> DecodeMap = new Dictionary<string, string>();
+				DecodeMap.Add("🂓", "111111111111");
+				DecodeMap.Add("🂒", "11111111111");
+				DecodeMap.Add("🂑", "1111111111");
+				DecodeMap.Add("🂐", "111111111");
+				DecodeMap.Add("🂏", "11111111");
+				DecodeMap.Add("🂎", "1111111");
+				DecodeMap.Add("🂍", "111111");
+				DecodeMap.Add("🂌", "11111111111");
+				DecodeMap.Add("🂋", "1111111111");
+				DecodeMap.Add("🂊", "111111111");
+				DecodeMap.Add("🂉", "11111111");
+				DecodeMap.Add("🂈", "1111111");
+				DecodeMap.Add("🂇", "111111");
+				DecodeMap.Add("🂆", "11111");
+				DecodeMap.Add("🂅", "1111111111");
+				DecodeMap.Add("🂄", "111111111");
+				DecodeMap.Add("🂃", "11111111");
+				DecodeMap.Add("🂂", "1111111");
+				DecodeMap.Add("🂁", "111111");
+				DecodeMap.Add("🂀", "11111");
+				DecodeMap.Add("🁿", "1111");
+				DecodeMap.Add("🁾", "111111111");
+				DecodeMap.Add("🁽", "11111111");
+				DecodeMap.Add("🁼", "1111111");
+				DecodeMap.Add("🁻", "111111");
+				DecodeMap.Add("🁺", "11111");
+				DecodeMap.Add("🁹", "1111");
+				DecodeMap.Add("🁸", "111");
+				DecodeMap.Add("🁷", "11111111");
+				DecodeMap.Add("🁶", "1111111");
+				DecodeMap.Add("🁵", "111111");
+				DecodeMap.Add("🁴", "11111");
+				DecodeMap.Add("🁳", "1111");
+				DecodeMap.Add("🁲", "111");
+				DecodeMap.Add("🁱", "11");
+				DecodeMap.Add("🁰", "1111111");
+				DecodeMap.Add("🁯", "111111");
+				DecodeMap.Add("🁮", "11111");
+				DecodeMap.Add("🁭", "1111");
+				DecodeMap.Add("🁬", "111");
+				DecodeMap.Add("🁫", "11");
+				DecodeMap.Add("🁪", "1");
+				DecodeMap.Add("🁩", "111111");
+				DecodeMap.Add("🁨", "11111");
+				DecodeMap.Add("🁧", "1111");
+				DecodeMap.Add("🁦", "111");
+				DecodeMap.Add("🁥", "11");
+				DecodeMap.Add("🁤", "1");
+				DecodeMap.Add("🁣", String.Empty);
+				DecodeMap.Add("🁡", "000000000000");
+				DecodeMap.Add("🁠", "00000000000");
+				DecodeMap.Add("🁟", "0000000000");
+				DecodeMap.Add("🁞", "000000000");
+				DecodeMap.Add("🁝", "00000000");
+				DecodeMap.Add("🁜", "0000000");
+				DecodeMap.Add("🁛", "000000");
+				DecodeMap.Add("🁚", "00000000000");
+				DecodeMap.Add("🁙", "0000000000");
+				DecodeMap.Add("🁘", "000000000");
+				DecodeMap.Add("🁗", "00000000");
+				DecodeMap.Add("🁖", "0000000");
+				DecodeMap.Add("🁕", "000000");
+				DecodeMap.Add("🁔", "00000");
+				DecodeMap.Add("🁓", "0000000000");
+				DecodeMap.Add("🁒", "000000000");
+				DecodeMap.Add("🁑", "00000000");
+				DecodeMap.Add("🁐", "0000000");
+				DecodeMap.Add("🁏", "000000");
+				DecodeMap.Add("🁎", "00000");
+				DecodeMap.Add("🁍", "0000");
+				DecodeMap.Add("🁌", "000000000");
+				DecodeMap.Add("🁋", "00000000");
+				DecodeMap.Add("🁊", "0000000");
+				DecodeMap.Add("🁉", "000000");
+				DecodeMap.Add("🁈", "00000");
+				DecodeMap.Add("🁇", "0000");
+				DecodeMap.Add("🁆", "000");
+				DecodeMap.Add("🁅", "00000000");
+				DecodeMap.Add("🁄", "0000000");
+				DecodeMap.Add("🁃", "000000");
+				DecodeMap.Add("🁂", "00000");
+				DecodeMap.Add("🁁", "0000");
+				DecodeMap.Add("🁀", "000");
+				DecodeMap.Add("🀿", "00");
+				DecodeMap.Add("🀾", "0000000");
+				DecodeMap.Add("🀽", "000000");
+				DecodeMap.Add("🀼", "00000");
+				DecodeMap.Add("🀻", "0000");
+				DecodeMap.Add("🀺", "000");
+				DecodeMap.Add("🀹", "00");
+				DecodeMap.Add("🀸", "0");
+				DecodeMap.Add("🀷", "000000");
+				DecodeMap.Add("🀶", "00000");
+				DecodeMap.Add("🀵", "0000");
+				DecodeMap.Add("🀴", "000");
+				DecodeMap.Add("🀳", "00");
+				DecodeMap.Add("🀲", "0");
+				DecodeMap.Add("🀱", String.Empty);
+				string tmpDecode = Input;
+				int KeyCount = 0;
+				foreach (KeyValuePair<string, string> replacement in DecodeMap)
+				{
+					if (MainClass.SetArgs.Progress && !MainClass.SetArgs.Silent)
+					{
+						KeyCount++;
+						Console.Write("\r");
+						Console.Write(KeyCount + "/" + DecodeMap.Count);
+					}
+					tmpDecode = tmpDecode.Replace(replacement.Key, replacement.Value);
+				}
+				binarystring = tmpDecode;
+			}
 			List<Byte> byteList = new List<Byte>();
 			try
 			{
