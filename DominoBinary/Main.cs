@@ -18,6 +18,10 @@ namespace DominoBinary
 			switch (args.Legacy)
 			{
 				case false:
+					if (args.BOTH)
+					{
+						SetArgs.ASCII = args.BOTH;
+					}
 					switch (args.MainMode.ToLower())
 					{
 						case "e":

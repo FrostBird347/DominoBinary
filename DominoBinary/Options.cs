@@ -26,7 +26,7 @@ namespace DominoBinary
 		[Option("ascii", Default = false, HelpText = "Use ASCII only encoder/decoder, legacy mode is not supported.")]
 		public bool ASCII { get; set; }
 
-		[Option("version", Default = false, HelpText = "Print version.")]
-		public bool PrintVersion { get; set; }
+		[Option("both", Default = false, HelpText = "Use ASCII only encoder/decoder and unicode encoder/decoder together with the same seeds. Legacy mode is not supported and decode isn't supported either.")]
+		public bool BOTH { get; set; }
 	}
 }

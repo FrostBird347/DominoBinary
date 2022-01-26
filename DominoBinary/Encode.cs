@@ -323,6 +323,17 @@ namespace DominoBinary
 			string FinalOutput = Output;
 			if (MainClass.SetArgs.ASCII)
 			{
+				if (MainClass.SetArgs.BOTH)
+				{
+					if (MainClass.SetArgs.Silent)
+					{
+						Console.Write(Output + "\n");
+					}
+					else
+					{
+						Console.Write("\n--------------\n" + Output); 
+					}
+				}
 				FinalOutput = Output.Replace("🂓", "{6,6}").Replace("🂒", "{6,5}").Replace("🂑", "{6|4}").Replace("🂐", "{6|3}").Replace("🂏", "{6|2}").Replace("🂎", "{6|1}").Replace("🂍", "{6|0}").Replace("🂌", "{5|6}").Replace("🂋", "{5|5}").Replace("🂊", "{5|4}").Replace("🂉", "{5|3}").Replace("🂈", "{5|2}").Replace("🂇", "{5|1}").Replace("🂆", "{5|0}").Replace("🂅", "{4|6}").Replace("🂄", "{4|5}").Replace("🂃", "{4|4}").Replace("🂂", "{4|3}").Replace("🂁", "{4|2}").Replace("🂀", "{4|1}").Replace("🁿", "{4|0}").Replace("🁾", "{3|6}").Replace("🁽", "{3|5}").Replace("🁼", "{3|4}").Replace("🁻", "{3|3}").Replace("🁺", "{3|2}").Replace("🁹", "{3|1}").Replace("🁸", "{3|0}").Replace("🁷", "{2|6}").Replace("🁶", "{2|5}").Replace("🁵", "{2|4}").Replace("🁴", "{2|3}").Replace("🁳", "{2|2}").Replace("🁲", "{2|1}").Replace("🁱", "{2|0}").Replace("🁰", "{1|6}").Replace("🁯", "{1|5}").Replace("🁮", "{1|4}").Replace("🁭", "{1|3}").Replace("🁬", "{1|2}").Replace("🁫", "{1|1}").Replace("🁪", "{1|0}").Replace("🁩", "{0|6}").Replace("🁨", "{0|5}").Replace("🁧", "{0|4}").Replace("🁦", "{0|3}").Replace("🁥", "{0|2}").Replace("🁤", "{0|1}").Replace("🁣", "{0|0}").Replace("🁡", "(6|6)").Replace("🁠", "(6|5)").Replace("🁟", "(6|4)").Replace("🁞", "(6|3)").Replace("🁝", "(6|2)").Replace("🁜", "(6|1)").Replace("🁛", "(6|0)").Replace("🁚", "(5|6)").Replace("🁙", "(5|5)").Replace("🁘", "(5|4)").Replace("🁗", "(5|3)").Replace("🁖", "(5|2)").Replace("🁕", "(5|1)").Replace("🁔", "(5|0)").Replace("🁓", "(4|6)").Replace("🁒", "(4|5)").Replace("🁑", "(4|4)").Replace("🁐", "(4|3)").Replace("🁏", "(4|2)").Replace("🁎", "(4|1)").Replace("🁍", "(4|0)").Replace("🁌", "(3|6)").Replace("🁋", "(3|5)").Replace("🁊", "(3|4)").Replace("🁉", "(3|3)").Replace("🁈", "(3|2)").Replace("🁇", "(3|1)").Replace("🁆", "(3|0)").Replace("🁅", "(2|6)").Replace("🁄", "(2|5)").Replace("🁃", "(2|4)").Replace("🁂", "(2|3)").Replace("🁁", "(2|2)").Replace("🁀", "(2|1)").Replace("🀿", "(2|0)").Replace("🀾", "(1|6)").Replace("🀽", "(1|5)").Replace("🀼", "(1|4)").Replace("🀻", "(1|3)").Replace("🀺", "(1|2)").Replace("🀹", "(1|1)").Replace("🀸", "(1|0)").Replace("🀷", "(0|6)").Replace("🀶", "(0|5)").Replace("🀵", "(0|4)").Replace("🀴", "(0|3)").Replace("🀳", "(0|2)").Replace("🀲", "(0|1)").Replace("🀱", "(0|0)");
 			}
 			if (MainClass.SetArgs.Silent)
