@@ -1,0 +1,129 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;">
+	<title>DominoBinary ascii to unicode</title>
+	<script>
+		let convertKey = {
+			//Some hosting services don't mark the file as unicode, so we URI encode the value to be safe
+			"{6,6}": decodeURI("%F0%9F%82%93"),
+			"{6,5}": decodeURI("%F0%9F%82%92"),
+			"{6|4}": decodeURI("%F0%9F%82%91"),
+			"{6|3}": decodeURI("%F0%9F%82%90"),
+			"{6|2}": decodeURI("%F0%9F%82%8F"),
+			"{6|1}": decodeURI("%F0%9F%82%8E"),
+			"{6|0}": decodeURI("%F0%9F%82%8D"),
+			"{5|6}": decodeURI("%F0%9F%82%8C"),
+			"{5|5}": decodeURI("%F0%9F%82%8B"),
+			"{5|4}": decodeURI("%F0%9F%82%8A"),
+			"{5|3}": decodeURI("%F0%9F%82%89"),
+			"{5|2}": decodeURI("%F0%9F%82%88"),
+			"{5|1}": decodeURI("%F0%9F%82%87"),
+			"{5|0}": decodeURI("%F0%9F%82%86"),
+			"{4|6}": decodeURI("%F0%9F%82%85"),
+			"{4|5}": decodeURI("%F0%9F%82%84"),
+			"{4|4}": decodeURI("%F0%9F%82%83"),
+			"{4|3}": decodeURI("%F0%9F%82%82"),
+			"{4|2}": decodeURI("%F0%9F%82%81"),
+			"{4|1}": decodeURI("%F0%9F%82%80"),
+			"{4|0}": decodeURI("%F0%9F%81%BF"),
+			"{3|6}": decodeURI("%F0%9F%81%BE"),
+			"{3|5}": decodeURI("%F0%9F%81%BD"),
+			"{3|4}": decodeURI("%F0%9F%81%BC"),
+			"{3|3}": decodeURI("%F0%9F%81%BB"),
+			"{3|2}": decodeURI("%F0%9F%81%BA"),
+			"{3|1}": decodeURI("%F0%9F%81%B9"),
+			"{3|0}": decodeURI("%F0%9F%81%B8"),
+			"{2|6}": decodeURI("%F0%9F%81%B7"),
+			"{2|5}": decodeURI("%F0%9F%81%B6"),
+			"{2|4}": decodeURI("%F0%9F%81%B5"),
+			"{2|3}": decodeURI("%F0%9F%81%B4"),
+			"{2|2}": decodeURI("%F0%9F%81%B3"),
+			"{2|1}": decodeURI("%F0%9F%81%B2"),
+			"{2|0}": decodeURI("%F0%9F%81%B1"),
+			"{1|6}": decodeURI("%F0%9F%81%B0"),
+			"{1|5}": decodeURI("%F0%9F%81%AF"),
+			"{1|4}": decodeURI("%F0%9F%81%AE"),
+			"{1|3}": decodeURI("%F0%9F%81%AD"),
+			"{1|2}": decodeURI("%F0%9F%81%AC"),
+			"{1|1}": decodeURI("%F0%9F%81%AB"),
+			"{1|0}": decodeURI("%F0%9F%81%AA"),
+			"{0|6}": decodeURI("%F0%9F%81%A9"),
+			"{0|5}": decodeURI("%F0%9F%81%A8"),
+			"{0|4}": decodeURI("%F0%9F%81%A7"),
+			"{0|3}": decodeURI("%F0%9F%81%A6"),
+			"{0|2}": decodeURI("%F0%9F%81%A5"),
+			"{0|1}": decodeURI("%F0%9F%81%A4"),
+			"{0|0}": decodeURI("%F0%9F%81%A3"),
+			"(6|6)": decodeURI("%F0%9F%81%A1"),
+			"(6|5)": decodeURI("%F0%9F%81%A0"),
+			"(6|4)": decodeURI("%F0%9F%81%9F"),
+			"(6|3)": decodeURI("%F0%9F%81%9E"),
+			"(6|2)": decodeURI("%F0%9F%81%9D"),
+			"(6|1)": decodeURI("%F0%9F%81%9C"),
+			"(6|0)": decodeURI("%F0%9F%81%9B"),
+			"(5|6)": decodeURI("%F0%9F%81%9A"),
+			"(5|5)": decodeURI("%F0%9F%81%99"),
+			"(5|4)": decodeURI("%F0%9F%81%98"),
+			"(5|3)": decodeURI("%F0%9F%81%97"),
+			"(5|2)": decodeURI("%F0%9F%81%96"),
+			"(5|1)": decodeURI("%F0%9F%81%95"),
+			"(5|0)": decodeURI("%F0%9F%81%94"),
+			"(4|6)": decodeURI("%F0%9F%81%93"),
+			"(4|5)": decodeURI("%F0%9F%81%92"),
+			"(4|4)": decodeURI("%F0%9F%81%91"),
+			"(4|3)": decodeURI("%F0%9F%81%90"),
+			"(4|2)": decodeURI("%F0%9F%81%8F"),
+			"(4|1)": decodeURI("%F0%9F%81%8E"),
+			"(4|0)": decodeURI("%F0%9F%81%8D"),
+			"(3|6)": decodeURI("%F0%9F%81%8C"),
+			"(3|5)": decodeURI("%F0%9F%81%8B"),
+			"(3|4)": decodeURI("%F0%9F%81%8A"),
+			"(3|3)": decodeURI("%F0%9F%81%89"),
+			"(3|2)": decodeURI("%F0%9F%81%88"),
+			"(3|1)": decodeURI("%F0%9F%81%87"),
+			"(3|0)": decodeURI("%F0%9F%81%86"),
+			"(2|6)": decodeURI("%F0%9F%81%85"),
+			"(2|5)": decodeURI("%F0%9F%81%84"),
+			"(2|4)": decodeURI("%F0%9F%81%83"),
+			"(2|3)": decodeURI("%F0%9F%81%82"),
+			"(2|2)": decodeURI("%F0%9F%81%81"),
+			"(2|1)": decodeURI("%F0%9F%81%80"),
+			"(2|0)": decodeURI("%F0%9F%80%BF"),
+			"(1|6)": decodeURI("%F0%9F%80%BE"),
+			"(1|5)": decodeURI("%F0%9F%80%BD"),
+			"(1|4)": decodeURI("%F0%9F%80%BC"),
+			"(1|3)": decodeURI("%F0%9F%80%BB"),
+			"(1|2)": decodeURI("%F0%9F%80%BA"),
+			"(1|1)": decodeURI("%F0%9F%80%B9"),
+			"(1|0)": decodeURI("%F0%9F%80%B8"),
+			"(0|6)": decodeURI("%F0%9F%80%B7"),
+			"(0|5)": decodeURI("%F0%9F%80%B6"),
+			"(0|4)": decodeURI("%F0%9F%80%B5"),
+			"(0|3)": decodeURI("%F0%9F%80%B4"),
+			"(0|2)": decodeURI("%F0%9F%80%B3"),
+			"(0|1)": decodeURI("%F0%9F%80%B2"),
+			"(0|0)": decodeURI("%F0%9F%80%B1")
+		}
+		
+		//Extremely inefficient way of converting text, but it works and im too lazy to write something better
+		function ConvertString(input) {
+			let output = input.trim();
+			let searchKeys = Object.keys(convertKey);
+			
+			for (let i = 0; i < searchKeys.length; i++) {
+				output = output.replaceAll(searchKeys[i], convertKey[searchKeys[i]])
+			}
+			
+			return output;
+		}
+	</script>
+</head>
+<body style="text-align: center;">
+	<h1 style="text-align: center; font-family: 'Maven Pro', sans-serif; padding-top: 1%;">DominoBinary ascii to unicode</h1>
+	<hr>
+	<p style="font-family: 'Public Sans', sans-serif;">Input:
+		<input type="text" onchange="document.getElementById('output').textContent = ConvertString(this.value)"></input>
+	</p>
+	<h3 id="output" style="font-weight: normal; text-align: center; font-family: 'Public Sans', sans-serif;"></h3>
+</body>
+</html>
